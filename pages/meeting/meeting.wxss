@@ -1,0 +1,68 @@
+/* pages/manager/manager.wxss */
+.search{
+	width:92%;
+	height:66rpx;
+	background:#f2f2f2;
+	border-radius:50rpx;
+	left:4%;
+	margin:20rpx auto;
+}
+.search_btn{
+	width:12%;
+	text-align: center;
+}
+.search_btn image{
+	width:36rpx;
+	height:36rpx;
+}
+.search input{
+	width:85%;
+	height:100%;
+	padding-left:3%
+}
+.meeting_tilte{
+	width:100%;
+	height:90rpx;
+	border-bottom:solid 1px #d6d6d6;
+}
+.meeting_cont{
+	width:100%;
+	height:88rpx;
+	border-bottom:solid 1px #d6d6d6;
+}
+.meeting_tilte .w23{
+	width:23%;
+	height:90rpx;
+	line-height:90rpx;
+	padding:0 1.5%;
+	text-align:center;
+}
+.meeting_cont .w23{
+	width:23%;
+	height:88rpx;
+	line-height:88rpx;
+	padding:0 1.5%;
+	text-align:center;
+}
+.meeting_cont .w31{
+	width:31%;
+	height:88rpx;
+	line-height:88rpx;
+	padding:0 1.5%;
+	text-align:center;
+}
+.meeting_tilte .w31{
+	width:31%;
+	height:88rpx;
+	line-height:88rpx;
+	padding:0 1.5%;
+	text-align:center;
+}
+.submit_info{
+	margin:0 auto;
+	width:98%;
+	height:60rpx;
+	line-height:60rpx;
+	border-radius:0rpx;
+	border-radius:50rpx;
+}

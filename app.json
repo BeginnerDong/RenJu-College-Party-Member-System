@@ -1,0 +1,32 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/detail/detail",
+    "pages/user/user",
+    "pages/news/news",
+    "pages/branch/branch",
+    "pages/organization/organization",
+    "pages/userInfor/userInfor",
+    "pages/userNotice/userNotice",
+    "pages/userMeeting/userMeeting",
+    "pages/userMeetingDetail/userMeetingDetail",
+    "pages/userTask/userTask",
+    "pages/userTaskDetail/userTaskDetail",
+    "pages/userTasKSubmit/userTasKSubmit",
+    "pages/userReorts/userReorts",
+    "pages/userMessage/userMessage",
+    "pages/userDetail/userDetail",
+    "pages/userDetailSubmit/userDetailSubmit",
+    "pages/login/login",
+    "pages/manager/manager",
+    "pages/userPassword/userPassword",
+    "pages/meeting/meeting"
+
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#b02923",
+    "navigationBarTitleText": "首页",
+    "navigationBarTextStyle": "#fff"
+  }
+}

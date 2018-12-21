@@ -1,0 +1,106 @@
+{
+	"description": "项目配置文件。",
+	"packOptions": {
+		"ignore": []
+	},
+	"setting": {
+		"urlCheck": true,
+		"es6": true,
+		"postcss": true,
+		"minified": true,
+		"newFeature": true
+	},
+	"compileType": "miniprogram",
+	"libVersion": "2.2.2",
+	"appid": "wx35eb6af61bb965c8",
+	"projectname": "%E4%BA%A4%E9%80%9A%E5%A4%A7%E5%AD%A6%E4%BA%BA%E5%B1%85%E5%AD%A6%E9%99%A2",
+	"isGameTourist": false,
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"currentL": -1,
+			"list": []
+		},
+		"miniprogram": {
+			"current": 10,
+			"list": [
+				{
+					"id": -1,
+					"name": "index",
+					"pathName": "pages/index/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "分类",
+					"pathName": "pages/index1/index1",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "个人中心",
+					"pathName": "pages/user/user",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "管理员",
+					"pathName": "pages/manager/manager",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "管理员",
+					"pathName": "pages/manager/manager",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "管理员",
+					"pathName": "pages/manager/manager",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "会议记录",
+					"pathName": "pages/meeting/meeting",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "公告通知",
+					"pathName": "pages/userNotice/userNotice",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "提交",
+					"pathName": "pages/userDetailSubmit/userDetailSubmit",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "最新通知",
+					"pathName": "pages/userMeetingDetail/userMeetingDetail",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "风采",
+					"pathName": "pages/branch/branch"
+				}
+			]
+		}
+	}
+}

@@ -1,0 +1,20 @@
+<!--login.wxml-->
+<view class="w690 bg1" style="padding-bottom:20rpx;">
+   <view class="notice bg1">
+     <view class="notice_title font28 color2">
+       <text class="font24">●</text>标题标题标题标题标题
+     </view>
+     <view class="notice_time font26 color2 flex">
+       <text class="text1">发布任务时间:</text><text class="color">2018-9-9 20:00</text>
+     </view>
+     <view class="notice_time font26 color2 flex">
+       <text class="text1">完成任务时间:</text><text class="color">2018-9-9 20:00</text>
+     </view>
+     <view class="notice_cont font26">
+       内容内容内容内容内容内容内容内容内容让你让你 内容内容内容内容内容内容内容内容内容让你让你 内容内容内容让你你。
+     </view>
+   </view>
+</view>
+<button class="submit_info font26" bindtap="intoPath" data-path="/pages/userTasKSubmit/userTasKSubmit">
+  提交任务
+</button>

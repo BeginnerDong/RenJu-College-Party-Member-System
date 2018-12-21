@@ -1,0 +1,30 @@
+<!--login.wxml-->
+<view class="login">
+    <image src="/images/img_background@2x.jpg"></image>
+</view>
+<view id="login_cont">
+    <view id="login">
+      <view class="login_box">
+          <view class="login_input flexRowBetween">
+            <view class="input_img">
+              <image src="/images/phone.png"></image>
+            </view>
+             <view class="input_in">
+              <input placeholder="请输入手机号"></input>
+            </view>
+          </view>
+          <view class="login_input flexRowBetween">
+            <view class="input_img">
+              <image src="/images/password.png"></image>
+            </view>
+             <view class="input_in">
+              <input placeholder="请输入密码"></input>
+            </view>
+          </view>
+          <form bindsubmit="login" report-submit="true">
+              <button form-type="submit" class="submit_info" style="width:100%;margin:80rpx auto 0 auto;height:88rpx;line-height:88rpx;border-radius:0rpx;">登录</button>
+            </form>
+      </view>
+    </view>
+</view>
+

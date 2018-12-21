@@ -1,0 +1,85 @@
+/* pages/manager/manager.wxss */
+.search{
+	width:92%;
+	height:66rpx;
+	background:#f2f2f2;
+	border-radius:50rpx;
+	left:4%;
+	margin:20rpx auto;
+}
+.search_btn{
+	width:12%;
+	text-align: center;
+}
+.search_btn image{
+	width:36rpx;
+	height:36rpx;
+}
+.search input{
+	width:85%;
+	height:100%;
+	padding-left:3%
+}
+.banner{
+	width:100%;
+	height:236rpx;
+	overflow:hidden;
+}
+.banner_box{
+	height:120rpx;
+}
+.user_left{
+	width:80%;
+	text-align:center;
+}
+.user_right{
+	width:20%;
+}
+.user_img{
+	width:120rpx;
+	height:120rpx;
+	border-radius:50%;
+	overflow: hidden;
+	border:solid 1px #fff;
+	margin:0 auto;
+}
+.user_right image{
+	width:12rpx;
+	height:20rpx;
+}
+.meeting{
+	border-top:solid 1px #d6d6d6;
+}
+.meeting_tilte{
+	width:100%;
+	height:90rpx;
+	border-bottom:solid 1px #d6d6d6;
+}
+.meeting_cont{
+	width:100%;
+	height:88rpx;
+	border-bottom:solid 1px #d6d6d6;
+}
+.meeting_tilte .w33{
+	width:30.33%;
+	height:90rpx;
+	line-height:90rpx;
+	padding:0 1.5%;
+	text-align:center;
+}
+.meeting_cont .w33{
+	width:30.33%;
+	height:88rpx;
+	line-height:88rpx;
+	padding:0 1.5%;
+	text-align:center;
+}
+.message{
+	position:absolute;
+	left:20rpx;
+	top:20rpx;
+}
+.message image{
+	width:36rpx;
+	height:36rpx;
+}

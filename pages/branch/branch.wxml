@@ -1,0 +1,125 @@
+<!--login.wxml-->
+<view class="tabs font30 flexRowBetween color2 bg1">
+    <view class="tabs_item " data-id="0" bindtap="tab">
+        <text class="color2 {{currentId == 0?'tabs_this':''}}">支部简介</text>
+    </view>
+    <view class="tabs_item " data-id="1" bindtap="tab">
+        <text class="color2 {{currentId == 1?'tabs_this':''}}">支部负责人</text>
+    </view>
+    <view class="tabs_item " data-id="2" bindtap="tab">
+        <text class="color2 {{currentId == 2?'tabs_this':''}}">先进典型</text>
+    </view>
+</view>
+<view style="{{currentId == 0?'display:block':'display:none'}}">
+  <view class="w690 bg1 branch_info">
+    <image src="/images/img12.png"></image>
+    <view class="font26 color2">内容内容内容内容内容内容内容内容内容你竟然吧内容容 内容内容内容内容内容内容内容内容内容内容内容内容内 容内容内容内容内容内容</view>
+  </view>
+</view>
+<view style="{{currentId == 1?'display:block':'display:none'}}">
+  <view class="w690 bg1">
+    <view class=" flexRowBetween meeting_info">
+      <view class="branch_left font28 color2">
+        姓名
+      </view>
+      <view class="branch_right color4 font26">
+        张三
+      </view>
+    </view>
+    <view class=" flexRowBetween meeting_info">
+      <view class="branch_left font28 color2">
+        入党时间
+      </view>
+      <view class="branch_right color4 font26">
+        2018-9-29
+      </view>
+    </view>
+    <view class="flex1 person_intro">
+      <view class="branch_left font28 color2">
+        个人简介
+      </view>
+      <view class="branch_right color4 font26">
+        内容内容内容内容内容内容内容内容内容内 内容内容内容内容内容内容内容你内容内容 内容内容内容内容内容内容内容内容内容内 内容内内容内容内容内容内容内容内容内容内容内 内容内容内容内容内容内容内容你内容内容 内容内容内容内容内容内容内容内容内容内 内容内内容内容内容内容内容内容内容内容内容内 内容内容内容内容内容内容内容你内容内容 内容内容内容内容内容内容内容内容内容内 内容内内容内容内容内容内容内容内容内容内容内 内容内容内容内容内容内容内容你内容内容 内容内容内容内容内容内容内容内容内容内 内容内
+      </view>
+    </view>
+    <view class="person_img flexRowBetween">
+      <view class="persong_item">
+        <image src="/images/img2.png"></image>
+      </view>
+      <view class="persong_item">
+        <image src="/images/img2.png"></image>
+      </view>
+    </view>
+  </view>
+
+</view>
+<view style="{{currentId == 2?'display:block':'display:none'}}">
+   <view class="w690 bg1" style="margin-bottom:30rpx;padding-bottom:30rpx;">
+    <view class=" flexRowBetween meeting_info">
+      <view class="branch_left font28 color2">
+        姓名
+      </view>
+      <view class="branch_right color4 font26">
+        张三
+      </view>
+    </view>
+    <view class=" flexRowBetween meeting_info">
+      <view class="branch_left font28 color2">
+        入党时间
+      </view>
+      <view class="branch_right color4 font26">
+        2018-9-29
+      </view>
+    </view>
+    <view class=" flexRowBetween meeting_info">
+      <view class="branch_left font28 color2">
+        事件
+      </view>
+      <view class="branch_right color4 font26">
+        内容内容内容内容内容内容内容内容内容你竟
+      </view>
+    </view>
+    <view class="person_img flexRowBetween">
+      <view class="persong_item">
+        <image src="/images/img2.png"></image>
+      </view>
+      <view class="persong_item">
+        <image src="/images/img2.png"></image>
+      </view>
+    </view>
+  </view>
+  <view class="w690 bg1" style="margin-bottom:30rpx;padding-bottom:30rpx;">
+    <view class=" flexRowBetween meeting_info">
+      <view class="branch_left font28 color2">
+        姓名
+      </view>
+      <view class="branch_right color4 font26">
+        张三
+      </view>
+    </view>
+    <view class=" flexRowBetween meeting_info">
+      <view class="branch_left font28 color2">
+        入党时间
+      </view>
+      <view class="branch_right color4 font26">
+        2018-9-29
+      </view>
+    </view>
+    <view class=" flexRowBetween meeting_info">
+      <view class="branch_left font28 color2">
+        事件
+      </view>
+      <view class="branch_right color4 font26">
+        内容内容内容内容内容内容内容内容内容你竟
+      </view>
+    </view>
+    <view class="person_img flexRowBetween">
+      <view class="persong_item">
+        <image src="/images/img2.png"></image>
+      </view>
+      <view class="persong_item">
+        <image src="/images/img2.png"></image>
+      </view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,96 @@
+<!--login.wxml-->
+<view class="tabs font30 flexRowBetween color2 bg1">
+    <view class="tabs_item " data-id="0" bindtap="tab">
+        <text class="color2 {{currentId == 0?'tabs_this':''}}">最新</text>
+    </view>
+    <view class="tabs_item " data-id="1" bindtap="tab">
+        <text class="color2 {{currentId == 1?'tabs_this':''}}">未完成</text>
+    </view>
+    <view class="tabs_item " data-id="2" bindtap="tab">
+        <text class="color2 {{currentId == 2?'tabs_this':''}}">迟交</text>
+    </view>
+    <view class="tabs_item " data-id="3" bindtap="tab">
+        <text class="color2 {{currentId == 3?'tabs_this':''}}">按时完成</text>
+    </view>
+</view>
+<view style="{{currentId == 0?'display:block':'display:none'}}">
+  <view class="w690 bg1" style="padding-bottom:20rpx;" bindtap="intoPath" data-path="/pages/userTaskDetail/userTaskDetail">
+     <view class="notice bg1">
+       <view class="notice_title font28 color2">
+         <text class="font24">●</text>标题标题标题标题标题
+       </view>
+       <view class="notice_time font26 color2 flex">
+         <text class="text1">发布任务时间:</text><text class="color">2018-9-9 20:00</text>
+       </view>
+       <view class="notice_time font26 color2 flex">
+         <text class="text1">完成任务时间:</text><text class="color">2018-9-9 20:00</text>
+       </view>
+     </view>
+  </view>
+  <view style="width:100%;height:30rpx;background:#f6f6f6;"></view>
+  <view class="w690 bg1" style="padding-bottom:20rpx;" bindtap="intoPath" data-path="/pages/userTaskDetail/userTaskDetail">
+     <view class="notice bg1">
+       <view class="notice_title font28 color2">
+         <text class="font24">●</text>标题标题标题标题标题
+       </view>
+       <view class="notice_time font26 color2 flex">
+         <text class="text1">发布任务时间:</text><text class="color">2018-9-9 20:00</text>
+       </view>
+       <view class="notice_time font26 color2 flex">
+         <text class="text1">完成任务时间:</text><text class="color">2018-9-9 20:00</text>
+       </view>
+     </view>
+  </view>
+  <view style="width:100%;height:30rpx;background:#f6f6f6;"></view>
+</view>
+<view style="{{currentId == 1?'display:block':'display:none'}}">
+  <view style="width:100%;height:30rpx;background:#f6f6f6;"></view>
+  <view class="w690 bg1" style="padding-bottom:20rpx;" bindtap="intoPath" data-path="/pages/userTaskDetail/userTaskDetail">
+     <view class="notice bg1">
+       <view class="notice_title font28 color2">
+         <text class="font24">●</text>未完成未完成未完成未完成
+       </view>
+       <view class="notice_time font26 color2 flex">
+         <text class="text1">发布任务时间:</text><text class="color">2018-9-9 20:00</text>
+       </view>
+       <view class="notice_time font26 color2 flex">
+         <text class="text1">完成任务时间:</text><text class="color">2018-9-9 20:00</text>
+       </view>
+     </view>
+  </view>
+  <view style="width:100%;height:30rpx;background:#f6f6f6;"></view>
+</view>
+<view style="{{currentId == 2?'display:block':'display:none'}}">
+  <view style="width:100%;height:30rpx;background:#f6f6f6;"></view>
+  <view class="w690 bg1" style="padding-bottom:20rpx;" bindtap="intoPath" data-path="/pages/userTaskDetail/userTaskDetail">
+     <view class="notice bg1">
+       <view class="notice_title font28 color2">
+         <text class="font24">●</text>习近平
+       </view>
+       <view class="notice_time font26 color2 flex">
+         <text class="text1">发布任务时间:</text><text class="color">2018-9-9 20:00</text>
+       </view>
+       <view class="notice_time font26 color2 flex">
+         <text class="text1">完成任务时间:</text><text class="color">2018-9-9 20:00</text>
+       </view>
+     </view>
+  </view>
+  <view style="width:100%;height:30rpx;background:#f6f6f6;"></view>
+</view>
+<view style="{{currentId == 3?'display:block':'display:none'}}">
+  <view style="width:100%;height:30rpx;background:#f6f6f6;"></view>
+  <view class="w690 bg1" style="padding-bottom:20rpx;" bindtap="intoPath" data-path="/pages/userTaskDetail/userTaskDetail">
+     <view class="notice bg1">
+       <view class="notice_title font28 color2">
+         <text class="font24">●</text>"两学一做"
+       </view>
+       <view class="notice_time font26 color2 flex">
+         <text class="text1">发布任务时间:</text><text class="color">2018-9-9 20:00</text>
+       </view>
+       <view class="notice_time font26 color2 flex">
+         <text class="text1">完成任务时间:</text><text class="color">2018-9-9 20:00</text>
+       </view>
+     </view>
+  </view>
+  <view style="width:100%;height:30rpx;background:#f6f6f6;"></view>
+</view>

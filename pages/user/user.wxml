@@ -1,0 +1,87 @@
+<!--index3.wxml-->
+<view class="banner flex">
+    <view class="message" bindtap="intoPath" data-path="/pages/userMessage/userMessage">
+        <image src="/images/message.png"></image>
+    </view>
+    <view class="banner_box flexRowBetween w690">
+        <view class="user_left">
+            <view class="user_img">
+              <open-data type="userAvatarUrl"></open-data>
+            </view>
+            <view class="user_name font28 color2"><open-data type="userNickName" lang="zh_CN"></open-data></view>
+        </view>
+        
+        <view class="user_right flexRowBetween" bindtap="intoPath" data-path="/pages/userPassword/userPassword">
+            <view class="font24 color2">修改密码</view>
+            <image src="/images/next_page1.png"></image>
+        </view>
+    </view>
+</view>
+<view class="sort flex">
+    <view class="sort_item flex" bindtap="intoPath" data-path="/pages/userInfor/userInfor">
+        <view class="item_box flex">
+            <view style="width:100%;">
+                <image src="/images/user_icon1.png"></image>
+                <view class="font26 color2">基本信息</view>
+            </view>
+        </view>
+    </view>
+    <view class="sort_item flex" bindtap="intoPath" data-path="/pages/userNotice/userNotice">
+        <view class="item_box flex" style="border-left:solid 1px #d6d6d6;border-right:solid 1px #d6d6d6">
+            <view style="width:100%;">
+                <image src="/images/user_icon2.png"></image>
+                <view class="font26 color2">公告通知</view>
+            </view>
+        </view>
+    </view>
+    <view class="sort_item flex" bindtap="intoPath" data-path="/pages/userMeeting/userMeeting">
+        <view class="item_box flex">
+            <view style="width:100%;">
+                <image src="/images/user_icon3.png"></image>
+                <view class="font26 color2">会议通知</view>
+            </view>
+        </view>
+    </view>
+    <view class="sort_item flex" bindtap="intoPath" data-path="/pages/userTask/userTask">
+        <view class="item_box flex">
+            <view style="width:100%;">
+                <image src="/images/user_icon4.png"></image>
+                <view class="font26 color2">任务中心</view>
+            </view>
+        </view>
+    </view>
+    <view class="sort_item flex" bindtap="intoPath" data-path="/pages/userReorts/userReorts">
+        <view class="item_box flex" style="border-left:solid 1px #d6d6d6;">
+            <view style="width:100%;">
+                <image src="/images/user_icon5.png"></image>
+                <view class="font26 color2">思想汇报</view>
+            </view>
+        </view>
+    </view>
+    <view class="sort_item flex" bindtap="intoPath" data-path="/pages/userResume/userResume">
+        <view class="item_box flex" style="border-left:solid 1px #d6d6d6;">
+            <view style="width:100%;">                
+            </view>
+        </view>
+    </view>
+</view>
+<view class="navbar">
+    <view class="navbar_item"  bindtap="intoPathRedirect" data-path="/pages/index/index">
+        <view class="nav_img">
+          <image src="/images/navbar1.png"></image>
+        </view>
+        <view class="text">首页</view>
+    </view>
+    <view class="navbar_item">
+        <view class="nav_img">
+           <image src="/images/navbar2_a.png"></image>
+        </view>
+        <view class="text this_text" style="color:#b02923">个人中心</view>
+    </view>
+    <view class="navbar_item" bindtap="intoPathRedirect" data-path="/pages/login/login">
+        <view class="nav_img">
+           <image src="/images/navbar3.png"></image>
+        </view>
+        <view class="text">管理员</view>
+    </view>
+</view>

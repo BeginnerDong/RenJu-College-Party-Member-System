@@ -1,0 +1,52 @@
+<!--login.wxml-->
+<view class="w690 bg1" style="margin-bottom:30rpx;">
+   <view class="notice bg1">
+     <view class="notice_title font28 color2">
+       <text class="font24">●</text>标题标题标题标题标题
+     </view>
+     <view class="notice_cont font26">
+       内容内容内容内容内容内容内容内容内容让你让你 内容内容内容内容内容内容内容内容内容让你让你 内容内容内容让你你。
+     </view>
+     <view class="notice_img flexRowBetween">
+       <view class="img_item">
+         <image src="/images/img4@2x.png"></image>
+       </view>
+       <view class="img_item">
+         <image src="/images/img4@2x.png"></image>
+       </view>
+       <view class="img_item">
+         <image src="/images/img4@2x.png"></image>
+       </view>
+     </view>
+     <view class="notice_time font26 color">
+       2018-9-9 20:00
+     </view>
+   </view>
+</view>
+<view class="690" style="{{edit_show?'display:block':'display:none'}}">
+  <view class="edit">
+    <textarea class="font24" placeholder="编辑不能来原因"></textarea>
+  </view>
+  <form bindsubmit="submit" report-submit="true">
+      <button form-type="submit" class="submit_info" style="width:60%;margin:120rpx auto 0 auto;height:66rpx;line-height:66rpx;border-radius:0rpx;border-radius:50rpx;">提交</button>
+    </form>
+</view>
+<view style="{{sign_show?'display:block':'display:none'}}">
+  <form bindsubmit="attend" report-submit="true">
+      <button form-type="sign" class="submit_info" style="width:60%;margin:180rpx auto 0 auto;height:66rpx;line-height:66rpx;border-radius:0rpx;border-radius:50rpx;">签到</button>
+    </form>
+</view>
+<view style="{{edit_show||sign_show?'display:none':'display:block'}}">
+  <view class="submit flexCenter">
+     <view class="submit_item">
+       <form bindsubmit="attend" report-submit="true">
+        <button form-type="submit" class="submit_info" style="width:100%;margin:180rpx auto 0 auto;height:66rpx;line-height:66rpx;border-radius:0rpx;border-radius:50rpx;">确认参加</button>
+      </form>
+     </view>
+     <view class="submit_item">
+       <form bindsubmit="attend_no" report-submit="true">
+        <button form-type="submit" class="submit_info" style="width:100%;margin:180rpx auto 0 auto;height:66rpx;line-height:66rpx;border-radius:0rpx;border-radius:50rpx;">无法参加</button>
+      </form>
+     </view>
+  </view>
+</view>

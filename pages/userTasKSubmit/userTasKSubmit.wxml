@@ -1,0 +1,28 @@
+<!--login.wxml-->
+<view class="w690">
+  <view class="submit bg1" style="margin:20rpx 0;">
+    <view class="edit   flex">
+      <view class="edit_cont font28 color2">编辑</view>
+    </view>
+  </view>
+  <view class="submit bg1" >
+    <view class="w690 submit_cont">
+      <textarea placeholder="编辑文案" class="color4 font26"></textarea>
+    </view>
+    <view class="upload_img w690 flex">
+        <view class="upload_item color2 font24 ">
+          添加照片
+        </view>
+        <view class="upload_item color2 font24 upload_img">
+          <image src="/images/img_pic@2x.png"></image>
+        </view>
+    </view>
+    <view class="w690 uplode_btn flex">
+      <image src="/images/uplode_ivon.png"></image>
+      <text class="font24 color4">上传链接</text>
+    </view>
+  </view>
+</view>
+<form bindsubmit="submit" report-submit="true">
+  <button form-type="submit" class="submit_info" style="width:60%;margin:180rpx auto 0 auto;height:66rpx;line-height:66rpx;border-radius:0rpx;border-radius:50rpx;">确认</button>
+</form>
