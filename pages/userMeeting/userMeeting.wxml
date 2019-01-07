@@ -7,49 +7,20 @@
         <text class="color2 {{currentId == 1?'tabs_this':''}}">历史通知</text>
     </view>
 </view>
-<view style="{{currentId == 0?'display:block':'display:none'}}">
-  <view class="w690 bg1" bindtap="intoPath" data-path="/pages/userMeetingDetail/userMeetingDetail">
+<block wx:for="{{web_mainData}}" wx:key="id">
+  <view class="w690 bg1" bindtap="intoPath" data-path="/pages/userMeetingDetail/userMeetingDetail?id={{item.id}}">
      <view class="notice bg1">
        <view class="notice_title font28 color2">
-         <text class="font24">●</text>标题标题标题标题标题
+         <text class="font24">●</text>{{item.title}}
        </view>
        <view class="notice_cont font26">
-         内容内容内容内容内容内容内容内容内容让你让你 内容内容内容内容内容内容内容内容内容让你让你 内容内容内容让你你。
+         {{tem.description}}
        </view>
        <view class="notice_time font26 color">
-         2018-9-9 20:00
+         {{item.create_time}}
        </view>
      </view>
   </view>
   <view style="width:100%;height:30rpx;background:#f6f6f6;"></view>
-  <view class="w690 bg1"  bindtap="intoPath" data-path="/pages/userMeetingDetail/userMeetingDetail">
-     <view class="notice bg1">
-       <view class="notice_title font28 color2">
-         <text class="font24">●</text>标题标题标题标题标题
-       </view>
-       <view class="notice_cont font26">
-         内容内容内容内容内容内容内容内容内容让你让你 内容内容内容内容内容内容内容内容内容让你让你 内容内容内容让你你。
-       </view>
-       <view class="notice_time font26 color">
-         2018-9-9 20:00
-       </view>
-     </view>
-  </view>
-  <view style="width:100%;height:30rpx;background:#f6f6f6;"></view>
-</view>
-<view style="{{currentId == 1?'display:block':'display:none'}}">
-  <view class="w690 bg1"  bindtap="intoPath" data-path="/pages/userMeetingDetail/userMeetingDetail">
-     <view class="notice bg1">
-       <view class="notice_title font28 color2">
-         <text class="font24">●</text>标题标题标题标题标题
-       </view>
-       <view class="notice_cont font26">
-         内容内容内容内容内容内容内容内容内容让你让你 内容内容内容内容内容内容内容内容内容让你让你 内容内容内容让你你。
-       </view>
-       <view class="notice_time font26 color">
-         2018-9-9 20:00
-       </view>
-     </view>
-  </view>
-  <view style="width:100%;height:30rpx;background:#f6f6f6;"></view>
-</view>
+
+</block>

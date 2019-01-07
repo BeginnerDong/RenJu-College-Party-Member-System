@@ -1,85 +1,59 @@
 <!--login.wxml-->
 <view class="tabs font30 flexRowBetween color2 bg1">
-    <view class="tabs_item " data-id="0" bindtap="tab">
+    <view class="tabs_item " data-id="0" bindtap="{{web_buttonCanClick?'tab':''}}">
         <text class="color2 {{currentId == 0?'tabs_this':''}}">未阅读</text>
     </view>
-    <view class="tabs_item " data-id="1" bindtap="tab">
+    <view class="tabs_item " data-id="1" bindtap="{{web_buttonCanClick?'tab':''}}">
         <text class="color2 {{currentId == 1?'tabs_this':''}}">已阅读</text>
     </view>
 </view>
 <view style="{{currentId == 0?'display:block':'display:none'}}">
-  <view class="w690 bg1" style="margin-bottom:30rpx;">
-     <view class="notice bg1">
-       <view class="notice_title font28 color2">
-         <text class="font24">●</text>标题标题标题标题标题
-       </view>
-       <view class="notice_cont font26">
-         内容内容内容内容内容内容内容内容内容让你让你 内容内容内容内容内容内容内容内容内容让你让你 内容内容内容让你你。
-       </view>
-       <view class="notice_img flexRowBetween">
-         <view class="img_item">
-           <image src="/images/img4@2x.png"></image>
+  <block wx:for="{{web_mainData}}" wx:key="id">
+    <view class="w690 bg1" style="margin-bottom:30rpx;" wx:if="{{item.relation.length==0}}" bindtap="{{web_buttonCanClick?'relationAdd':''}}" data-id="{{item.id}}">
+       <view class="notice bg1">
+         <view class="notice_title font28 color2">
+           <text class="font24">●</text>{{item.title}}
+           <text class="font28" style="color:red;text-align:right" >未读</text>
          </view>
-         <view class="img_item">
-           <image src="/images/img4@2x.png"></image>
+         
+         <view class="notice_cont font26">
+           {{item.description}}
          </view>
-         <view class="img_item">
-           <image src="/images/img4@2x.png"></image>
+         <view class="notice_img flexRowBetween">
+            <block wx:for="{{item.mainImg}}" wx:for-item="c_item">
+               <view class="img_item">
+                 <image src="{{c_item.url}}"></image>
+               </view>
+           </block>
          </view>
-       </view>
-       <view class="notice_time font26 color">
-         2018-9-9 20:00
-       </view>
-     </view>
-  </view>
-  <view class="w690 bg1"  style="margin-bottom:30rpx;">
-     <view class="notice bg1">
-       <view class="notice_title font28 color2">
-         <text class="font24">●</text>标题标题标题标题标题
-       </view>
-       <view class="notice_cont font26">
-         内容内容内容内容内容内容内容内容内容让你让你 内容内容内容内容内容内容内容内容内容让你让你 内容内容内容让你你。
-       </view>
-       <view class="notice_img flexRowBetween">
-         <view class="img_item">
-           <image src="/images/img4@2x.png"></image>
-         </view>
-         <view class="img_item">
-           <image src="/images/img4@2x.png"></image>
-         </view>
-         <view class="img_item">
-           <image src="/images/img4@2x.png"></image>
+         <view class="notice_time font26 color">
+           {{item.create_time}}
          </view>
        </view>
-       <view class="notice_time font26 color">
-         2018-9-9 20:00
-       </view>
-     </view>
-  </view>
+    </view>
+  </block>
 </view>
 <view style="{{currentId == 1?'display:block':'display:none'}}">
-  <view class="w690 bg1" style="margin-bottom:30rpx;">
+  <block wx:for="{{web_mainData}}" wx:key="id">
+  <view class="w690 bg1" style="margin-bottom:30rpx;" wx:if="{{item.relation.length>0}}">
      <view class="notice bg1">
        <view class="notice_title font28 color2">
-         <text class="font24">●</text>标题标题标题标题标题
+         <text class="font24">●</text>{{item.title}}
        </view>
        <view class="notice_cont font26">
-         内容内容内容内容内容内容内容内容内容让你让你 内容内容内容内容内容内容内容内容内容让你让你 内容内容内容让你你。
+         {{item.description}}
        </view>
        <view class="notice_img flexRowBetween">
-         <view class="img_item">
-           <image src="/images/img4@2x.png"></image>
-         </view>
-         <view class="img_item">
-           <image src="/images/img4@2x.png"></image>
-         </view>
-         <view class="img_item">
-           <image src="/images/img4@2x.png"></image>
-         </view>
+          <block wx:for="{{item.mainImg}}" wx:for-item="c_item">
+             <view class="img_item">
+               <image src="{{c_item.url}}"></image>
+             </view>
+         </block>
        </view>
        <view class="notice_time font26 color">
-         2018-9-9 20:00
+         {{item.create_time}}
        </view>
      </view>
   </view>
+  </block>
 </view>

@@ -15,7 +15,46 @@ class Token {
         if (!token) {
             this.getUserInfo();
         };
-            
+    }
+    
+    getProjectToken(callback,postData) { 
+
+        if((postData&&postData.refreshToken)||!wx.getStorageSync('token')){
+            var params = {
+                token_name:'token',
+                info_name:'info',
+                thirdapp_id:2
+            };
+            this.getUserInfo(params,callback);
+        }else{
+            return wx.getStorageSync('token');
+        }
+    }
+
+    getStudentToken(callback,postData) { 
+
+        if((postData&&postData.refreshToken)||!wx.getStorageSync('token')){
+            wx.removeStorageSync('token');
+            wx.removeStorageSync('info');
+            wx.reLaunch({
+              url: '/pages/studentLogin/studentLogin'
+            });
+        }else{
+            return wx.getStorageSync('token');
+        }
+    }
+
+    getTeacherToken(callback,postData) { 
+
+        if((postData&&postData.refreshToken)||!wx.getStorageSync('token')){
+            wx.removeStorageSync('token');
+            wx.removeStorageSync('info');
+            wx.reLaunch({
+              url: '/pages/teacherLogin/teacherLogin'
+            });
+        }else{
+            return wx.getStorageSync('token');
+        }
     }
 
 
@@ -29,12 +68,12 @@ class Token {
                         wx.getUserInfo({
                             success: function(res) {                  
                                 wxUserInfo = res.userInfo;
-                            self.getTokenFromServer(wxUserInfo,params,callback);                              
+                                self.getTokenFromServer(wxUserInfo,params,callback);                              
                             }
                         });
                     }else{
                         self.getTokenFromServer(wxUserInfo,params,callback);                        
-                    }
+                    };
                 },
                 fail: res=>{
                     wx.showToast({
@@ -50,28 +89,27 @@ class Token {
                 success: function(res) {
                     wxUserInfo = res.userInfo;
                     self.getTokenFromServer(wxUserInfo,params,callback)                  
-                    
                 }
             });
-
         };
         console.log(wxUserInfo)
     }
 
-    
 
-    getTokenFromServer(data,params,callback) {
+    getTokenFromServer(wxUserInfo,params,callback) {
         var self  = this;
+        console.log('params',params);
+        console.log('wxUserInfo',params);
         wx.login({
             success: function (res) {
                 console.log(res)
                 var postData = {};
-                postData.thirdapp_id = getApp().globalData.thirdapp_id;
+                postData.thirdapp_id = params.thirdapp_id;  
+                
                 postData.code = res.code;
-                if(data.nickName&&data.avatarUrl){
-                    postData.nickname = data.nickName;
-                    postData.headImgUrl = data.avatarUrl;
-
+                if(wxUserInfo.nickName&&wxUserInfo.avatarUrl){
+                    postData.nickname = wxUserInfo.nickName;
+                    postData.headImgUrl = wxUserInfo.avatarUrl;
                 };
                 if(self.g_params&&self.g_params.parent_no){
                     postData.parent_no = self.g_params.parent_no;
@@ -80,29 +118,28 @@ class Token {
                 if(wx.getStorageSync('openidP')){
                     postData.openid = wx.getStorageSync('openidP');
                 };
-
+                console.log(postData)
                 wx.request({
-                    url: 'https://www.solelycloud.com/api/public/index.php/api/v1/Base/ProgrameToken/get',
+                    url: 'https://xianjiaoda.solelycloud.com/api/public/index.php/api/v1/Base/ProgrameToken/get',
                     method:'POST',
                     data:postData,
                     success:function(res){
                         console.log(res)
                         if(res.data&&res.data.solely_code==100000){
-                            wx.setStorageSync('info',res.data.info);
-                            wx.setStorageSync('token', res.data.token);
-                            wx.setStorageSync('openid', res.data.openid);
-                            if(params&&callback){
-                                params.data.token = res.data.token;
-                                callback && callback(params);
-                            }      
+                            wx.setStorageSync(params.info_name,res.data.info);
+                            wx.setStorageSync(params.token_name, res.data.token);
+                            
+                            if(callback){
+                                callback && callback();
+                            };      
                         }else{
                             wx.showToast({
                                 title: '获取token失败',
                                 icon: 'fail',
                                 duration: 1000,
                                 mask:true
-                            })
-                        }
+                            });
+                        };
                         
                         
                     }
@@ -122,15 +159,16 @@ class Token {
                 password:wx.getStorageSync('login').password,
             }
             wx.request({
-                url: 'https://www.solelycloud.com/api/public/index.php/api/v1/Func/Common/loginByUp',
+                url: 'https://xianjiaoda.solelycloud.com/api/public/index.php/api/v1/Func/Common/loginByUp',
                 method:'POST',
                 data:postData,
                 success:function(res){
                     console.log(res)
                     if(res.data&&res.data.token){
-                        wx.setStorageSync('threeToken', res.data.token);
+                        wx.setStorageSync('token', res.data.token);
                         var login = wx.getStorageSync('login');   
                         wx.setStorageSync('login',login);
+                        wx.setStorageSync('user_type',res.data.info.user_type);
                         if(params&&callback){  
                             params.data.token = res.data.token;
                              
@@ -153,9 +191,7 @@ class Token {
                        
                         wx.removeStorageSync('token');
                         wx.removeStorageSync('login');
-/*                        wx.redirectTo({
-                            url:'/pages/teacher/login/login'
-                        })*/
+
                     }
                     
                     

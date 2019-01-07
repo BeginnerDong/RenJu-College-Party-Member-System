@@ -1,7 +1,8 @@
 <!--pages/manager/manager.wxml-->
+<wxs module="func" src="../../utils/func.wxs" />
 <view class="search flex">
-    <input placeholder="请搜索内容" class="font28 color9"></input>
-    <view class="search_btn">
+    <input placeholder="请搜索内容" class="font28 color9" bindchange="changeBind" data-key="name" value="{{web_sForm.name}}"></input>
+    <view class="search_btn" bindtap="search">
         <image src="/images/search.png"></image>
     </view>
 </view>
@@ -13,44 +14,35 @@
 		<view class="w23 font32 color2" style="border-right:solid 1px #d6d6d6;">签到状态</view>
         <view class="w31 font32 color2" style="padding:0;">操作</view>
 	</view>
+    <block wx:for="{{web_mainData}}" wx:key="id">
 	<view class="meeting_cont flex">
-		<view class="w23 font26 color2 avoidOverflow">刘泽佑</view>
+		<view class="w23 font26 color2 avoidOverflow">{{item.userInfo[0].name}}</view>
 		<view class="w23 font26 color2" style="border-left:solid 1px #d6d6d6;border-right:solid 1px #d6d6d6;line-height:normal;">
-            <view style="margin-top:12rpx;height:80%;">2018-09-30 20:56</view>
+            <view style="margin-top:12rpx;height:80%;">{{item.score==1?'无':func.shortString(item.sign_time,16)}}</view>
 		</view>
-		<view class="w23 font26 color2" style="border-right:solid 1px #d6d6d6;">
-            已签到      
+		<view class="w23 font26 {{item.score==1?'color':'color2'}} " style="border-right:solid 1px #d6d6d6;">
+            {{item.score==1?'未签到':'已签到'}}     
         </view>
         <view class="w31 font26 color2" style="padding:0;">
-            <view class="flex" style="width:100%;height:100%;">
-                <form bindsubmit="submit" report-submit="true" style="width:50%;">
-                  <button form-type="submit" class="submit_info  font22">确认</button>
+            <view class="flex" style="width:100%;height:100%;" wx:if="{{item.score==2}}">
+                <form  report-submit="true" style="width:50%;" >
+                  <button form-type="submit" class="submit_info  font22" bindtap="{{web_buttonCanClick?'messageUpdate':''}}" data-id="{{item.id}}" data-num='0'>确认</button>
                 </form>
-                <form bindsubmit="submit" report-submit="true" style="width:50%;">
-                  <button form-type="submit" class="submit_info font22">取消</button>
+                <form report-submit="true" style="width:50%;">
+                  <button form-type="submit" class="submit_info font22"
+                  bindtap="{{web_buttonCanClick?'messageUpdate':''}}" data-id="{{item.id}}"
+                  data-num='1'>取消</button>
                 </form>
+            </view>
+            <view  style="width:100%;height:100%;text-align:center" wx:elif="{{item.score==3}}">
+                <view class="  font26 color" >已核销</view>
+            </view>
+            <view  style="width:100%;height:100%;text-align:center" wx:else>
+                <view class="  font22 color" >待签到</view>
             </view>
         </view>
 	</view>
-    <view class="meeting_cont flex">
-        <view class="w23 font26 color2 avoidOverflow">张泽佑</view>
-        <view class="w23 font26 color2" style="border-left:solid 1px #d6d6d6;border-right:solid 1px #d6d6d6;line-height:normal;">
-            <view style="margin-top:12rpx;height:80%;">2018-09-30 20:56</view>
-        </view>
-        <view class="w23 font26 color" style="border-right:solid 1px #d6d6d6;">
-            已签到      
-        </view>
-        <view class="w31 font26 color2" style="padding:0;">
-            <view class="flex" style="width:100%;height:100%;">
-                <form bindsubmit="submit" report-submit="true" style="width:50%;">
-                  <button form-type="submit" class="submit_info  font22">确认</button>
-                </form>
-                <form bindsubmit="submit" report-submit="true" style="width:50%;">
-                  <button form-type="submit" class="submit_info font22">取消</button>
-                </form>
-            </view>
-        </view>
-    </view>
+    </block>
 </view>
 <view class="space_bottom"></view>
 <view class="navbar">

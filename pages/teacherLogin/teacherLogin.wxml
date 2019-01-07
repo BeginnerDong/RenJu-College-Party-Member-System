@@ -1,4 +1,5 @@
 <!--login.wxml-->
+<view wx:if="{{web_show}}">
 <view class="login">
     <image src="/images/img_background@2x.jpg"></image>
 </view>
@@ -10,7 +11,7 @@
               <image src="/images/phone.png"></image>
             </view>
              <view class="input_in">
-              <input placeholder="请输入手机号"></input>
+              <input placeholder="请输入手机号" data-key="login_name" bindinput="bindInputChange"></input>
             </view>
           </view>
           <view class="login_input flexRowBetween">
@@ -18,13 +19,14 @@
               <image src="/images/password.png"></image>
             </view>
              <view class="input_in">
-              <input placeholder="请输入密码"></input>
+              <input placeholder="请输入密码" type="password" data-key="password" bindinput="bindInputChange"></input>
             </view>
           </view>
-          <form bindsubmit="login" report-submit="true">
+          <form bindsubmit="submit" report-submit="true">
               <button form-type="submit" class="submit_info" style="width:100%;margin:80rpx auto 0 auto;height:88rpx;line-height:88rpx;border-radius:0rpx;">登录</button>
-            </form>
+          </form>
+           <button style="font-size:15px;color:#fff;width:550rpx;margin:20rpx auto;background:#FFCC1A;border-radius:50rpx;height:90rpx;line-height:90rpx" data-path="/pages/index/index"  bindtap='intoPathRedi' >返 回 首 页</button>
       </view>
     </view>
 </view>
-
+</view>

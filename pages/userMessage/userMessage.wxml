@@ -1,4 +1,5 @@
 <!--login.wxml-->
+<wxs module="func" src="../../utils/func.wxs" />
 <view class="tabs font30 flexRowBetween color2 bg1">
     <view class="tabs_item " data-id="0" bindtap="tab">
         <text class="color2 {{currentId == 0?'tabs_this':''}}">党费通知</text>
@@ -11,53 +12,43 @@
     </view>
 </view>
 <view style="{{currentId == 0?'display:block':'display:none'}}">
-  <view class="w690 bg1 flexRowBetween meeting_info">
-    <view class="font28 color2">
-      党费通知
+  <block wx:for="{{web_mainData}}" wx:key="id">
+    <view class="w690 bg1 flexRowBetween meeting_info">
+      <view class="font28 color2">
+        {{item.title}}
+      </view>
+      <view class="font26 color2">
+        {{item.create_time}}
+      </view>
     </view>
-    <view class="font26 color2">
-      2018-9-9 20:00
-    </view>
-  </view>
-  <view class="w690 bg1 flexRowBetween meeting_info">
-    <view class="font28 color2">
-      党费通知
-    </view>
-    <view class="font26 color2">
-      2018-9-9 20:00
-    </view>
-  </view>
-  <view class="w690 bg1 flexRowBetween meeting_info">
-    <view class="font28 color2">
-      党费通知
-    </view>
-    <view class="font26 color2">
-      2018-9-9 20:00
-    </view>
-  </view>
+  </block>
 </view>
 <view style="{{currentId == 1?'display:block':'display:none'}}">
-  <view class="w690 bg1 flexRowBetween meeting_info">
-    <view class="font28 color2">
-      会议名称
+  <block wx:for="{{web_mainData}}" wx:key="id">
+    <view class="w690 bg1 flexRowBetween meeting_info">
+      <view class="font28 color2">
+        {{item.title}}
+      </view>
+      <view class="font26 color2">
+        {{item.create_time}}
+      </view>
     </view>
-    <view class="font26 color2">
-      2018-9-9 20:00
-    </view>
-  </view>
+  </block>
 </view>
 <view style="{{currentId == 2?'display:block':'display:none'}}">
+  <block wx:for="{{web_mainData}}" wx:key="id">
   <view class="w690 bg1" style="padding-bottom:20rpx;border-bottom:solid 20rpx #f6f6f6" >
      <view class="notice bg1">
        <view class="notice_title font28 color2">
-         <text class="font24">●</text>标题标题标题标题标题
+         <text class="font24">●</text>{{item.title}}
        </view>
        <view class="notice_time font26 color2 flex">
-         <text class="text1">发布任务时间:</text><text class="color">2018-9-9 20:00</text>
+         <text class="text1">发布任务时间:</text><text class="color">{{item.create_time}}</text>
        </view>
        <view class="notice_time font26 color2 flex">
-         <text class="text1">完成任务时间:</text><text class="color">2018-9-9 20:00</text>
+         <text class="text1">完成任务时间:</text><text class="color">{{func.timestampToTime(item.end_time)}}</text>
        </view>
      </view>
   </view>
+  </block>
 </view>

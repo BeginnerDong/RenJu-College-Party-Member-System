@@ -3,22 +3,32 @@ var timestampToTime = function(timestamp) {
     
     timestamp = parseInt(timestamp);
     
-    var format = getDate(timestamp).getFullYear()+'/'+(getDate(timestamp).getMonth()+1)+'/'+getDate(timestamp).getDate()+'  ';
-
-    if(getDate(timestamp).getHours()<10){
-    	var format = format + '0' + getDate(timestamp).getHours();
+    var format = getDate(timestamp).getFullYear()+'-';
+    if(getDate(timestamp).getMonth()<10){
+      var format = format + '0' + (getDate(timestamp).getMonth()+1)+'-';
     }else{
-    	var format = format +  getDate(timestamp).getHours();
+      var format = format +  (getDate(timestamp).getMonth()+1)+'-';
+    }
+    if(getDate(timestamp).getDate()<10){
+      var format = format + '0' + getDate(timestamp).getDate()+'  ';
+    }else{
+      var format = format +  getDate(timestamp).getDate()+'  ';
+    }
+    if(getDate(timestamp).getHours()<10){
+      var format = format + '0' + getDate(timestamp).getHours();
+    }else{
+      var format = format +  getDate(timestamp).getHours();
     }
     if(getDate(timestamp).getMinutes()<10){
-    	var format = format + ':' + '0' + getDate(timestamp).getMinutes();
+      var format = format + ':' + '0' + getDate(timestamp).getMinutes();
     }else{
-    	var format = format + ':' + getDate(timestamp).getMinutes();
+      var format = format + ':' + getDate(timestamp).getMinutes();
     }
 
     return format;
 
 }
+
 
 var timeToTimestamp= function(format){
     
@@ -26,6 +36,17 @@ var timeToTimestamp= function(format){
     mydata=mydata.replace('-', '/'); 
     return getDate(mydata)/1000;
     
+}
+
+var shortString = function(str,i){
+   if(str){
+     return str.substring(0,i);
+   };
+  console.log('str',666)
+}
+
+var test = function(){
+  return 123;
 }
 
 var stringToArray= function(str,babel){
@@ -108,10 +129,9 @@ module.exports = {
   arrayByItem: arrayByItem,
   countPrice: countPrice,
   multiply: multiply,
+  shortString: shortString,
   integer: integer,
   getArrayByTarget: getArrayByTarget,
   inArray:inArray
-
- 
- 
+  
 };

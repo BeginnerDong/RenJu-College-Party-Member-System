@@ -3,26 +3,36 @@
 	<view class="password">
 	    <view class="input_list1 font28 flex">
 	      <view class="input_before1 color2">姓名:</view>
-	      <input class="color2" placeholder="请输入姓名"></input>
+	      <input class="color2" placeholder="请输入姓名" data-key="name" bindblur="changeBind"  value="{{web_sForm.name}}"></input>
 	    </view>
 	    <view class="input_list1 font28 flex  w690">
 	      <view class="input_before1 color2">电话:</view>
-	      <input class="color2" placeholder="请输入电话"></input>
+	      <input class="color2" placeholder="请输入电话" data-key="phone" bindblur="changeBind"  value="{{web_sForm.phone}}"></input>
 	    </view>
 	    <view class="input_list1 font28 flex  w690">
 	      <view  class="input_before1 color2">Email:</view>
-	      <input class="color2" placeholder="请输入Email"></input>
+	      <input class="color2" placeholder="请输入Email" data-key="email" bindblur="changeBind"  value="{{web_sForm.email}}"></input>
 	    </view>
-	    <view class="input_list1 font28 flex">
-	      <view class="input_before1 color2">性别:</view>
-	      <input class="color2" placeholder=""></input>
-	    </view>
+	    <view class="input_list1 flex" style="justify-content:flex-start">
+			<text class="font30 input_before1">性别:</text>
+			<view data-value="1" data-key="gender" bindtap="changeBind" style="display:flex;margin-left:100rpx;align-items:center">
+				<image src="{{web_sForm.gender=='1'?'/images/male_a.png':'/images/male.jpg'}}" style="width:40rpx;height:40rpx;margin-right:10rpx;" ></image>
+	      		<view class="font28" style="{{web_sForm.gender=='1'?'color:#21c3d4':''}}">男</view>
+			</view>
+	   		
+			<view data-value="2" data-key="gender" bindtap="changeBind" style="display:flex;margin-left:80rpx;align-items:center">
+				<image src="{{web_sForm.gender=='2'?'/images/female_a.jpg':'/images/female.jpg'}}" style="width:40rpx;height:40rpx;margin-right:10rpx" ></image>
+	      		<view class="font28" style="{{web_sForm.gender=='2'?'color:#21c3d4':''}}">女</view>
+			</view>
+		</view>
+	   
+
 	    <view class="input_list1 font28 flex  w690">
 	      <view class="input_before1 color2">出生日期:</view>
-	      <picker mode="date" class="flexRowBetween" value="" start="1970-09-01" end="2050-09-01" bindchange="bindDateChange" style="width:77%;background:#f6f6f6;border-radius:20rpx;">
+	      <picker mode="date" class="flexRowBetween" value="" start="1970-09-01" end="2050-09-01" bindchange="birthChange" style="width:77%;background:#f6f6f6;border-radius:20rpx;">
 				<view style="width:460rpx" class="flex">
-					<input placeholder="请输入出生日期" value="{{date}}" style="width:100%;"></input> 
-					<view class="next_page" style="width:4%;text-align:right;" bindchange="bindDateChange">
+					<input placeholder="请选择出生日期" value="{{web_sForm.passage1}}" style="width:100%;"></input> 
+					<view class="next_page" style="width:4%;text-align:right;" bindchange="birthChange">
 						<view class="user_icon1">
 							<image src="/images/up_down.png"></image>
 						</view>
@@ -32,9 +42,9 @@
 	    </view>
 	    <view class="input_list1 font28 flex  w690">
 	      <view  class="input_before1 color2">身份:</view>
-	      <picker  class="flexRowBetween"  value="{{index}}" range="{{position}}" bindchange="position"  style="width:77%;background:#f6f6f6;border-radius:20rpx;">
+	      <picker  class="flexRowBetween"  value="{{index}}" range="{{position}}" bindchange="positionChange"  style="width:77%;background:#f6f6f6;border-radius:20rpx;">
 				<view style="width:460rpx;height:60rpx;line-height:60rpx;padding-left:20rpx;" class="flex">
-					<view class="picker" style="width:100%;height:100%;">{{position[index]}} </view>
+					<view class="picker" style="width:100%;height:100%;">{{web_sForm.level}} </view>
 					<view class="next_page" style="width:4%;text-align:right;" >
 						<view class="user_icon1">
 							<image src="/images/up_down.png" style="margin-right:16rpx;"></image>
@@ -47,7 +57,7 @@
 	      <view class="input_before1 color2">职称:</view>
 	      <picker class="flexRowBetween" value="{{currentId}}" range="{{array}}" bindchange="bindPickerChange"  style="width:77%;background:#f6f6f6;border-radius:20rpx;">
 				<view style="width:460rpx;height:60rpx;line-height:60rpx;padding-left:20rpx;" class="flex">
-					<view class="picker" style="width:100%;height:100%;">{{array[currentId]}} </view>
+					<view class="picker" style="width:100%;height:100%;">{{web_sForm.idCard}} </view>
 					<view class="next_page" style="width:4%;text-align:right;">
 						<view class="user_icon1">
 							<image src="/images/up_down.png" style="margin-right:16rpx;"></image>
@@ -58,10 +68,10 @@
 	    </view>
 	    <view class="input_list1 font28 flex  w690">
 	      <view class="input_before1 color2">入党日期:</view>
-	      <picker mode="date" class="flexRowBetween" value="" start="1970-09-01" end="2050-09-01" bindchange="bindDateChange1" style="width:77%;background:#f6f6f6;border-radius:20rpx;">
+	      <picker mode="date" class="flexRowBetween" value="" start="1970-09-01" end="2050-09-01" bindchange="dateChange" style="width:77%;background:#f6f6f6;border-radius:20rpx;">
 				<view style="width:460rpx" class="flex">
-					<input placeholder="请输入出生日期" value="{{date1}}" style="width:100%;"></input> 
-					<view class="next_page" style="width:4%;text-align:right;" bindchange="bindDateChange">
+					<input placeholder="请选择入党日期" value="{{web_sForm.address}}" style="width:100%;"></input> 
+					<view class="next_page" style="width:4%;text-align:right;" bindchange="dateChange">
 						<view class="user_icon1">
 							<image src="/images/up_down.png"></image>
 						</view>
@@ -72,6 +82,5 @@
     </view>
  
 </view>
-<form bindsubmit="submit" report-submit="true" class="confirm">
-  <button form-type="submit" class="submit_info" style="height:88rpx;line-height:88rpx;border-radius:0rpx;">确认</button>
-</form>
+
+ <button form-type="submit" class="submit_info" style="height:88rpx;line-height:88rpx;border-radius:0rpx;" open-type="getUserInfo" bindgetuserinfo="{{web_buttonCanClick?'submit':''}}">确认</button>

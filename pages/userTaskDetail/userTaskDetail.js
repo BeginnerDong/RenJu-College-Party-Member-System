@@ -4,31 +4,62 @@ const app = getApp();
 
 Page({
   data: {
-      currentId:0,
+      isFirstLoadAllStandard:['getMainData'],
+   
     },
 
   onLoad(options){
-     const self = this;
+    const self = this;
+    api.commonInit(self);
+    self.data.id= options.id;
   },
+
+  onShow(){
+    const self = this;
+    self.getMainData()
+  },
+
+  getMainData(){
+    const  self =this;
+   
+    const postData={};
+    postData.searchItem = {
+      thirdapp_id:getApp().globalData.thirdapp_id,
+      id:self.data.id
+    };
+    postData.getAfter = {
+      message:{
+        tableName:'Message',
+        middleKey:'id',
+        key:'relation_id',
+        searchItem:{
+          status:1
+        },
+        condition:'='
+      }
+    };
+    const callback =(res)=>{
+      if(res.info.data.length>0){
+        self.data.mainData = res.info.data[0];
+      }else{
+        api.showToast('数据错误','fail');
+      };
+      api.checkLoadAll(self.data.isFirstLoadAllStandard,'getMainData',self);
+      self.setData({
+        web_mainData:self.data.mainData,
+      });
+    };
+    api.articleGet(postData,callback);
+  },
+
+  
+
   intoPath(e){
     const self = this;
     api.pathTo(api.getDataSet(e,'path'),'nav');
   },
-   tab(e){
-   this.setData({
-      currentId:e.currentTarget.dataset.id
-    })
-  },
-  intoPathRedi(e){
-    const self = this;
-    wx.navigateBack({
-      delta:1
-    })
-  },
-  intoPathRedirect(e){
-    const self = this;
-    api.pathTo(api.getDataSet(e,'path'),'redi');
-  }, 
+
+
  
 })
 

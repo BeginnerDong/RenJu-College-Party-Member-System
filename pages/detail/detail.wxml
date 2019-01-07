@@ -2,15 +2,19 @@
 <view class="w690 bg1" style="padding-bottom:20rpx;">
    <view class="notice bg1">
      <view class="notice_title font34 color2">
-        标题标题标题标题标题
+        {{web_mainData.title}}
      </view>
      <view class="notice_time font26 color2 flex">
-      <view class="color org_time">2018-9-9 20:00</view>
-      <view class="color address">地点地点地点地点地点地点地点</view>
+      <view class="color org_time">{{web_mainData.create_time}}</view>
+      <view class="color address">{{web_mainData.description}}</view>
      </view>
      <view class="notice_cont">
-       <view class="font26 color4">内容内容内容内容内容内容内容内容内容让你让你 内容内容内容内容内容内容内容内容内容让你让你 内容内容内容让你你。</view>
-       <image src="/images/img3.png"></image>
+       <view class="font26 color4">
+          <view class="content ql-editor" >
+              <import src="../../wxParse/wxParse.wxml"/>
+              <template is="wxParse" data="{{wxParseData:web_mainData.content}}"/>
+          </view> 
+       </view>
      </view>
    </view>
 </view>

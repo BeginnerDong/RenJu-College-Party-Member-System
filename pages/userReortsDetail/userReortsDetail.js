@@ -1,20 +1,22 @@
 import {Api} from '../../utils/api.js';
 var api = new Api();
 const app = getApp();
-import {Token} from '../../utils/token.js';
-const token = new Token();
 
 Page({
   data: {
- 
-   isFirstLoadAllStandard:['getMainData'],
-  },
+      isFirstLoadAllStandard:['getMainData'],
+   
+    },
 
   onLoad(options){
     const self = this;
     api.commonInit(self);
     self.data.id= options.id;
-    self.getMainData();
+  },
+
+  onShow(){
+    const self = this;
+    self.getMainData()
   },
 
   getMainData(){
@@ -25,10 +27,21 @@ Page({
       thirdapp_id:getApp().globalData.thirdapp_id,
       id:self.data.id
     };
+    postData.getAfter = {
+      message:{
+        tableName:'Message',
+        middleKey:'id',
+        key:'relation_id',
+        searchItem:{
+          status:1
+        },
+        condition:'='
+      }
+    };
     const callback =(res)=>{
       if(res.info.data.length>0){
         self.data.mainData = res.info.data[0];
-        self.data.mainData.content = api.wxParseReturn(res.info.data[0].content).nodes;
+        
       }else{
         api.showToast('数据错误','fail');
       };
@@ -40,14 +53,15 @@ Page({
     api.articleGet(postData,callback);
   },
 
+  
 
   intoPath(e){
     const self = this;
     api.pathTo(api.getDataSet(e,'path'),'nav');
   },
 
- 
 
+ 
 })
 
   

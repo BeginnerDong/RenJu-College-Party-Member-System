@@ -17,6 +17,6 @@
    </view>
 </view>
 
-<button class="submit_info font26" bindtap="intoPath" data-path="/pages/userTasKSubmit/userTasKSubmit?id={{web_mainData.id}}">
+<button class="submit_info font26" bindtap="intoPath" data-path="/pages/userReortsSubmit/userReortsSubmit?id={{web_mainData.id}}">
   {{web_mainData.message.length==0?'提交任务':'修改任务'}}
 </button>

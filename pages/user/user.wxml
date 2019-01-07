@@ -11,7 +11,7 @@
             <view class="user_name font28 color2"><open-data type="userNickName" lang="zh_CN"></open-data></view>
         </view>
         
-        <view class="user_right flexRowBetween" bindtap="intoPath" data-path="/pages/userPassword/userPassword">
+        <view class="user_right flexRowBetween" bindtap="intoPath" data-path="/pages/userPassword/userPassword?num=0">
             <view class="font24 color2">修改密码</view>
             <image src="/images/next_page1.png"></image>
         </view>
@@ -78,7 +78,7 @@
         </view>
         <view class="text this_text" style="color:#b02923">个人中心</view>
     </view>
-    <view class="navbar_item" bindtap="intoPathRedirect" data-path="/pages/login/login">
+    <view class="navbar_item" bindtap="intoPathRedirect" data-path="/pages/teacherLogin/teacherLogin">
         <view class="nav_img">
            <image src="/images/navbar3.png"></image>
         </view>

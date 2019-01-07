@@ -1,49 +1,19 @@
 <!--index.wxml-->
-<view class="product flexRowBetween w690 bg1" bindtap="intoPath" data-path="/pages/detail/detail">
-    <view class="product_box flexRowBetween">
-        <view class="product_left">
-            <image src="/images/index1.png"></image>
-        </view>
-        <view class="product_right flexRowBetween">
-            <view class="product_detail">
-                <view class="font30 product_title color2 avoidOverflow">标题标题标题标题</view>
-                <view class="font26 color2 product_cont avoidOverflow2">
-                  内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容
+<block wx:for="{{web_mainData}}" wx:key="id">
+    <view class="product flexRowBetween w690 bg1" bindtap="intoPath" data-path="/pages/detail/detail?id={{item.id}}">
+        <view class="product_box flexRowBetween">
+            <view class="product_left">
+                <image src="{{item.mainImg[0].url}}"></image>
+            </view>
+            <view class="product_right flexRowBetween">
+                <view class="product_detail">
+                    <view class="font30 product_title color2 avoidOverflow">{{item.title}}</view>
+                    <view class="font26 color2 product_cont avoidOverflow2">
+                      {{item.description}}
+                    </view>
+                    <view class="product_time font24 color2">{{item.create_time}}</view>
                 </view>
-                <view class="product_time font24 color2">2018-11-9</view>
             </view>
         </view>
     </view>
-</view>
-<view class="product flexRowBetween w690 bg1" bindtap="intoPath" data-path="/pages/detail/detail">
-    <view class="product_box flexRowBetween">
-        <view class="product_left">
-            <image src="/images/index1.png"></image>
-        </view>
-        <view class="product_right flexRowBetween">
-            <view class="product_detail">
-                <view class="font30 product_title color2 avoidOverflow">标题标题标题标题</view>
-                <view class="font26 color2 product_cont avoidOverflow2">
-                  内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容
-                </view>
-                <view class="product_time font24 color2">2018-11-9</view>
-            </view>
-        </view>
-    </view>
-</view>
-<view class="product flexRowBetween w690 bg1" bindtap="intoPath" data-path="/pages/detail/detail">
-    <view class="product_box flexRowBetween">
-        <view class="product_left">
-            <image src="/images/index1.png"></image>
-        </view>
-        <view class="product_right flexRowBetween">
-            <view class="product_detail">
-                <view class="font30 product_title color2 avoidOverflow">标题标题标题标题</view>
-                <view class="font26 color2 product_cont avoidOverflow2">
-                  内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容
-                </view>
-                <view class="product_time font24 color2">2018-11-9</view>
-            </view>
-        </view>
-    </view>
-</view>
+</block>

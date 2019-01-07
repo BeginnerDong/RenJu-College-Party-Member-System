@@ -5,19 +5,14 @@ const app = getApp();
 Page({
   data: {
       isFirstLoadAllStandard:['getMainData'],
-      edit_show:false,
-      sign_show:false,
+    
       submitData:{
         content:'',
-        type:1,
-        class:1,
-   
+        mainImg:[],
+        /*file:'',*/
+        type:3,
       },
-      submitDataTwo:{
-        type:1,
-        class:2,
-        score:1
-      }
+ 
     },
 
   onLoad(options){
@@ -49,12 +44,17 @@ Page({
     const callback =(res)=>{
       if(res.info.data.length>0){
         self.data.mainData = res.info.data[0];
-        self.data.mainData.content = api.wxParseReturn(res.info.data[0].content).nodes;
+        if(self.data.mainData.message.length>0){
+          self.data.submitData.content = res.info.data[0].message[0].content,
+          self.data.submitData.mainImg = res.info.data[0].message[0].mainImg
+        }
+        
       }else{
         api.showToast('数据错误','fail');
       };
       api.checkLoadAll(self.data.isFirstLoadAllStandard,'getMainData',self);
       self.setData({
+        web_submitData:self.data.submitData,
         web_mainData:self.data.mainData,
       });
     };
@@ -63,17 +63,20 @@ Page({
 
   messageAdd(){
     const self = this;
+    var nowTime  = new Date().getTime();
     const postData = {};
     postData.tokenFuncName = 'getStudentToken';
     postData.data = {};
     postData.data = api.cloneForm(self.data.submitData);
     postData.data.relation_id = self.data.mainData.id;
-
+    postData.data.passage1 = self.data.mainData.end_time;
+    postData.data.passage2 = nowTime;
+    console.log('postData',postData)
     const callback = (res)=>{
       if(res.solely_code==100000){
         api.showToast('提交成功','none',1000);
         setTimeout(function(){
-          self.getMainData()
+          self.intoPathRedi()
         },1000);
       };
       api.buttonCanClick(self,true);
@@ -81,26 +84,7 @@ Page({
     api.messageAdd(postData,callback);
   },
 
-  messageTwoAdd(){
-    const self = this;
-    api.buttonCanClick(self);
-    const postData = {};
-    postData.tokenFuncName = 'getStudentToken';
-    postData.data = {};
-    postData.data = api.cloneForm(self.data.submitDataTwo);
-    postData.data.relation_id = self.data.mainData.id;
-    const callback = (res)=>{
-      if(res.solely_code==100000){
-        api.showToast('确认参加','none',1000);
-        setTimeout(function(){
-          self.getMainData()
-        },1000);
-      };
-      api.buttonCanClick(self,true);
-      
-    };
-    api.messageAdd(postData,callback);
-  },
+  
 
   messageUpdate(){
     const self = this;
@@ -110,16 +94,13 @@ Page({
     postData.searchItem={
       id:self.data.mainData.message[0].id
     };
-    postData.data = {
-      score:2,
-      sign_time:new Date(new Date().toLocaleDateString()).getTime()
-    };
+    postData.data = api.cloneForm(self.data.submitData);
 
     const callback = (res)=>{
       if(res.solely_code==100000){
-        api.showToast('签到成功','none',1000);
+        api.showToast('修改成功','none',1000);
         setTimeout(function(){
-          self.getMainData()
+          self.intoPathRedi()
         },1000);
       };
       api.buttonCanClick(self,true);
@@ -143,22 +124,88 @@ Page({
     if(pass){
       self.messageAdd();    
     }else{
-      api.showToast('请补全信息','none');
+      api.showToast('请补全信息','none',1000);
       api.buttonCanClick(self,true);
     };
   },
 
-  attend(){
-    const self =this;
+  deleteImg(e){
+    const self = this;
+    var index = api.getDataSet(e,'index');
+    console.log('deleteImg',index)
+    self.data.submitData.mainImg.splice(index,1);
     self.setData({
-      sign_show:true
+      web_submitData:self.data.submitData
     })
   },
 
-  attend_no(){
-    const self =this;
-    self.setData({
-      edit_show:true
+  upLoadImg(){
+    const self = this;
+    if(self.data.submitData.mainImg.length>2){
+      api.showToast('仅限3张','fail');
+      return;
+    };
+    wx.showLoading({
+      mask: true,
+      title: '图片上传中',
+    });
+    const callback = (res)=>{
+      console.log('res',res)
+      if(res.solely_code==100000){
+
+        self.data.submitData.mainImg.push({url:res.info.url})
+        self.setData({
+          web_submitData:self.data.submitData
+        });
+        wx.hideLoading()  
+      }else{
+        api.showToast('网络故障','none')
+      }
+
+    };
+
+    wx.chooseImage({
+      count:1,
+      success: function(res) {
+        console.log(res);
+        var tempFilePaths = res.tempFilePaths;
+        console.log(callback)
+        api.uploadFile(tempFilePaths[0],'file',{tokenFuncName:'getStudentToken'},callback)
+      },
+      fail: function(err){
+        wx.hideLoading();
+      }
+    })
+  },
+
+
+  upLoadFile(){
+    const self = this;
+    wx.showLoading({
+      mask: true,
+      title: '文件上传中',
+    });
+    const callback = (res)=>{
+      console.log('res',res)
+      if(res.solely_code==100000){
+        self.data.submitData.file.push({url:res.info.url})
+        self.setData({
+          web_submitData:self.data.submitData
+        });  
+      }else{
+        api.showToast('网络故障','none')
+      }
+    };
+    wx.chooseVideo({
+      success: function(res) { 
+        console.log(res);
+        var src = res.tempFilePath;
+        console.log(callback)
+        api.uploadFile(src,'file',{tokenFuncName:'getStudentToken'},callback)
+      },
+      fail: function(err){
+        wx.hideLoading();
+      }
     })
   },
 
@@ -173,6 +220,7 @@ Page({
       delta:1
     })
   },
+
 
   intoPathRedirect(e){
     const self = this;
