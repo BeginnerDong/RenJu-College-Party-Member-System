@@ -6,7 +6,7 @@
      </view>
      <view class="notice_time font26 color2 flex">
       <view class="color org_time">{{web_mainData.create_time}}</view>
-      <view class="color address">{{web_mainData.description}}</view>
+      <view class="color address avoidOverflow">{{web_mainData.description}}</view>
      </view>
      <view class="notice_cont">
        <view class="font26 color4">

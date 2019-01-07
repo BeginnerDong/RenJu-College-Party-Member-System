@@ -21,16 +21,29 @@ page{
 }
 #login{
 	width:92%;
-	height:420rpx;
+	height:460rpx;
 	margin:0 auto;
 	background:#fff;
 	border-radius:20rpx;
+	position:relative;
+	padding-top:50rpx;
 }
+.back_index{
+	position:absolute;
+	top:0;
+	right:0;
+	width:200rpx;
+	height:70rpx;
+	text-align:center;
+	line-height:70rpx;
+	/*border-radius:20rpx 0 20rpx 0;*/
+}
+
 #login_cont{
 	width:100%;
 	position:absolute;
 	left:0;
-	top:30%;
+	top:26%;
 }
 .login_box{
 	width:73%;

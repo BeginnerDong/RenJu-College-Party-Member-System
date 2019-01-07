@@ -25,7 +25,7 @@
             <form bindsubmit="submit" report-submit="true">
                 <button form-type="submit" class="submit_info" style="width:100%;margin:80rpx auto 0 auto;height:88rpx;line-height:88rpx;border-radius:0rpx;">登录</button>
             </form>
-             <button style="font-size:15px;color:#fff;width:550rpx;margin:20rpx auto;background:#FFCC1A;border-radius:50rpx;height:90rpx;line-height:90rpx" data-path="/pages/index/index"  bindtap='intoPathRedi' >返 回 首 页</button>
+             <view class="back_index bg color1 font24" data-path="/pages/index/index"  bindtap='intoPathRedi' >返 回 首 页</view>
         </view>
       </view>
   </view>
