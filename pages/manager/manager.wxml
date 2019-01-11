@@ -38,7 +38,7 @@
     		<view class="w33 font26 color2 avoidOverflow" style="border-left:solid 1px #d6d6d6;border-right:solid 1px #d6d6d6;">
                 {{item.description}}
     		</view>
-    		<view class="w33 font26 color2 avoidOverflow">{{func.shortString(item.create_time,16)}}</view>
+    		<view class="w33 font26 color2 avoidOverflow">{{func.shortString(item.start_time,16)}}</view>
     	</view>
 	</block>
 </view>

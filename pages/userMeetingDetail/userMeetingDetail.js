@@ -112,7 +112,7 @@ Page({
     };
     postData.data = {
       score:2,
-      sign_time:new Date(new Date().toLocaleDateString()).getTime()
+      sign_time:new Date().getTime()
     };
 
     const callback = (res)=>{

@@ -34,7 +34,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 10,
+			"current": 11,
 			"list": [
 				{
 					"id": -1,
@@ -99,7 +99,20 @@
 				{
 					"id": -1,
 					"name": "风采",
-					"pathName": "pages/branch/branch"
+					"pathName": "pages/branch/branch",
+					"query": ""
+				},
+				{
+					"id": 11,
+					"name": "哈哈",
+					"pathName": "pages/userTaskDetail/userTaskDetail",
+					"query": "id=8"
+				},
+				{
+					"id": -1,
+					"name": "哈哈",
+					"pathName": "pages/userTasKSubmit/userTasKSubmit",
+					"query": ""
 				}
 			]
 		}

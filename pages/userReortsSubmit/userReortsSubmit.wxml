@@ -1,5 +1,4 @@
-<!--login.wxml-->
-<view class="w690">
+<!--<view class="w690">
   <view class="submit bg1" style="margin:20rpx 0;">
     <view class="edit   flex">
       <view class="edit_cont font28 color2">编辑</view>
@@ -28,4 +27,6 @@
   </view>
 </view>
 
-<button form-type="submit" class="submit_info" style="width:60%;margin:180rpx auto 0 auto;height:66rpx;line-height:66rpx;border-radius:0rpx;border-radius:50rpx;" bindtap="{{web_buttonCanClick?(web_mainData.message.length==0?'submit':'messageUpdate'):''}}">提交任务</button>
+<button form-type="submit" class="submit_info" style="width:60%;margin:180rpx auto 0 auto;height:66rpx;line-height:66rpx;border-radius:0rpx;border-radius:50rpx;" bindtap="{{web_buttonCanClick?(web_mainData.message.length==0?'submit':'messageUpdate'):''}}">提交任务</button>-->
+
+<web-view src="{{web_url}}"></web-view>

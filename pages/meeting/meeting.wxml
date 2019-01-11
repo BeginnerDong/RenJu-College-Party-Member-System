@@ -18,7 +18,7 @@
 	<view class="meeting_cont flex">
 		<view class="w23 font26 color2 avoidOverflow">{{item.userInfo[0].name}}</view>
 		<view class="w23 font26 color2" style="border-left:solid 1px #d6d6d6;border-right:solid 1px #d6d6d6;line-height:normal;">
-            <view style="margin-top:12rpx;height:80%;">{{item.score==1?'无':func.shortString(item.sign_time,16)}}</view>
+            <view style="margin-top:12rpx;height:80%;">{{item.score==1?'无':func.timestampToTime(item.sign_time,16)}}</view>
 		</view>
 		<view class="w23 font26 {{item.score==1?'color':'color2'}} " style="border-right:solid 1px #d6d6d6;">
             {{item.score==1?'未签到':'已签到'}}     

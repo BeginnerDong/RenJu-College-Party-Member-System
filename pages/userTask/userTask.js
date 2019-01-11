@@ -6,9 +6,10 @@ const token = new Token();
 
 Page({
   data: {
-   currentId:0,
+   num:0,
    searchItem:{
     /*create_time:['>',new Date(new Date().toLocaleDateString()).getTime()/1000]*/
+    menu_id:14
    },
    mainData:[],
    getBefore:{},
@@ -18,23 +19,16 @@ Page({
   onLoad(options){
     const self = this;
     api.commonInit(self);
-    self.data.getBefore = {
-      caseData:{
-        tableName:'Label',
-        searchItem:{
-          title:['=',['任务中心']],
-        },
-        middleKey:'menu_id',
-        key:'id',
-        condition:'in',
-      },
-    };
+    self.setData({
+    	web_num:self.data.num
+    })
    
   },
 
   onShow(){
     const self = this;
-     self.getMainData();
+    self.data.mainData = [];
+    self.getMainData();
   },
 
   getMainData(isNew){
@@ -45,7 +39,9 @@ Page({
     const postData={};
     postData.paginate = api.cloneForm(self.data.paginate);
     postData.searchItem = api.cloneForm(self.data.searchItem);
-    postData.getBefore = api.cloneForm(self.data.getBefore);
+    if(JSON.stringify(api.cloneForm(self.data.getBefore)) != "{}"){
+    	postData.getBefore = api.cloneForm(self.data.getBefore);
+    };
     postData.getAfter = {
       message:{
         tableName:'Message',
@@ -80,14 +76,53 @@ Page({
     api.articleGet(postData,callback);
   },
 
+  
+
 
   tab(e){
     const self = this;
     api.buttonCanClick(self);
+    var num = api.getDataSet(e,'num');
+    self.data.getBefore = {};
+	    if(num==0){
+
+	    }else if(num==1){
+	    	self.data.getBefore.relation={
+	            tableName:'Message',
+	        	searchItem:{
+          	  		status:['in',[1]]
+	        	},
+	       	 	middleKey:'id',
+	        	key:'relation_id',
+	        	condition:'not in',	
+	    	}
+	  		      			   	    	
+	    }else if(num==2){
+	    	self.data.getBefore.relation={
+	            tableName:'Message',
+	        	searchItem:{
+          	  		behavior:['in',[1]]
+	        	},
+	       	 	middleKey:'id',
+	        	key:'relation_id',
+	        	condition:'in',	
+	    	}
+	    }else if(num==3){
+	    	self.data.getBefore.relation={
+	            tableName:'Message',
+	        	searchItem:{
+          	  		behavior:['in',[2]]
+	        	},
+	       	 	middleKey:'id',
+	        	key:'relation_id',
+	        	condition:'in',	
+	    	}
+	    };
+		   
     self.setData({
-      currentId:api.getDataSet(e,'id')
+      web_num:num
     });
-    api.buttonCanClick(self,true)
+    self.getMainData(true)
   },
 
   onReachBottom() {

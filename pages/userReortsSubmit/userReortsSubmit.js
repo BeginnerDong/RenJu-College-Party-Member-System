@@ -1,6 +1,8 @@
 import {Api} from '../../utils/api.js';
 var api = new Api();
 const app = getApp();
+import {Token} from '../../utils/token.js';
+const token = new Token();
 
 Page({
   data: {
@@ -9,7 +11,7 @@ Page({
       submitData:{
         content:'',
         mainImg:[],
-        /*file:'',*/
+        file:[],
         type:3,
       },
  
@@ -17,9 +19,15 @@ Page({
 
   onLoad(options){
     const self = this;
-    api.commonInit(self);
-    self.data.id= options.id;
-    self.getMainData();
+    
+
+    self.data.url = 'https://xianjiaoda.solelycloud.com/userTaskSubmit.html?token='
+    +token.getStudentToken()
+    +'&id='+options.id;
+    console.log(self.data.url)
+    self.setData({
+    	web_url:self.data.url
+    })
   },
 
   getMainData(){
