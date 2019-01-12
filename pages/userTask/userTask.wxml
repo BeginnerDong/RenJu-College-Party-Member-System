@@ -17,7 +17,7 @@
 
 <view >
   <block wx:for="{{web_mainData}}" wx:key="id">
-    <view class="w690 bg1" style="padding-bottom:20rpx;" bindtap="intoPath" data-path="/pages/userReortsDetail/userReortsDetail?id={{item.id}}">
+    <view class="w690 bg1" style="padding-bottom:20rpx;" bindtap="intoPath" data-path="/pages/userTaskDetail/userTaskDetail?id={{item.id}}">
        <view class="notice bg1">
          <view class="notice_title font28 color2">
            <text class="font24">●</text>{{item.title}}
