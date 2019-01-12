@@ -88,9 +88,9 @@ Page({
 
 	    }else if(num==1){
 	    	self.data.getBefore.relation={
-	            tableName:'Message',
+	         tableName:'Message',
 	        	searchItem:{
-          	  		status:['in',[1]]
+          	  status:['in',[1]]
 	        	},
 	       	 	middleKey:'id',
 	        	key:'relation_id',
