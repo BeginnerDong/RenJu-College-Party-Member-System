@@ -16,13 +16,13 @@
 	    <view class="input_list1 flex" style="justify-content:flex-start">
 			<text class="font30 input_before1">性别:</text>
 			<view data-value="1" data-key="gender" bindtap="changeBind" style="display:flex;margin-left:100rpx;align-items:center">
-				<image src="{{web_sForm.gender=='1'?'/images/male_a.png':'/images/male.jpg'}}" style="width:40rpx;height:40rpx;margin-right:10rpx;" ></image>
-	      		<view class="font28" style="{{web_sForm.gender=='1'?'color:#21c3d4':''}}">男</view>
+				<image src="{{web_sForm.gender=='1'?'/images/select_a.png':'/images/select.png'}}" style="width:40rpx;height:40rpx;margin-right:10rpx;" ></image>
+	      		<view class="font28" style="{{web_sForm.gender=='1'?'color:#b02923':''}}">男</view>
 			</view>
 	   		
 			<view data-value="2" data-key="gender" bindtap="changeBind" style="display:flex;margin-left:80rpx;align-items:center">
-				<image src="{{web_sForm.gender=='2'?'/images/female_a.jpg':'/images/female.jpg'}}" style="width:40rpx;height:40rpx;margin-right:10rpx" ></image>
-	      		<view class="font28" style="{{web_sForm.gender=='2'?'color:#21c3d4':''}}">女</view>
+				<image src="{{web_sForm.gender=='2'?'/images/select_a.png':'/images/select.png'}}" style="width:40rpx;height:40rpx;margin-right:10rpx" ></image>
+	      		<view class="font28" style="{{web_sForm.gender=='2'?'color:#b02923':''}}">女</view>
 			</view>
 		</view>
 	   

@@ -34,7 +34,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 11,
+			"current": 13,
 			"list": [
 				{
 					"id": -1,
@@ -113,6 +113,11 @@
 					"name": "哈哈",
 					"pathName": "pages/userTasKSubmit/userTasKSubmit",
 					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "思想汇报提交",
+					"pathName": "pages/userReortsSubmit/userReortsSubmit"
 				}
 			]
 		}

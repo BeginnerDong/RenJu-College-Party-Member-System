@@ -18,6 +18,7 @@ page{
 .notice_cont{
 	color:#685958;
 	line-height:36rpx;
+	overflow:hidden;
 }
 .notice_time{
 	height:60rpx;
