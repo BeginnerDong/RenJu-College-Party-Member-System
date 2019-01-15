@@ -19,7 +19,7 @@ Page({
       caseData:{
         tableName:'Label',
         searchItem:{
-          title:['=',['新闻动态']],
+          title:['=',['组织活动']],
         },
         middleKey:'menu_id',
         key:'id',

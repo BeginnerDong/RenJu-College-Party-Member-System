@@ -15,6 +15,7 @@ Page({
     previousMargin: 0,
     nextMargin: 0,
     isFirstLoadAllStandard:['getSliderData','getMainData'],
+    sliderData:[],
   },
   //事件处理函数
  
@@ -29,13 +30,26 @@ Page({
     const self = this;
     const postData = {};
     postData.searchItem = {
-      title:'首页轮播',
       thirdapp_id:getApp().globalData.thirdapp_id
+    };
+    postData.getBefore = {
+      caseData:{
+        tableName:'Label',
+        searchItem:{
+          title:['=',['手机轮播']],
+        },
+        middleKey:'parentid',
+        key:'id',
+        condition:'in',
+      },
+    };
+    postData.order = {
+      listorder:'desc'
     };
     const callback = (res)=>{ 
       console.log(1000,res);
       if(res.info.data.length>0){
-       self.data.sliderData = res.info.data[0];
+       self.data.sliderData.push.apply(self.data.sliderData,res.info.data)
       }
       self.setData({
         web_sliderData:self.data.sliderData,
@@ -66,6 +80,14 @@ Page({
       });
     };
     api.articleGet(postData,callback);
+  },
+
+  onReachBottom() {
+    const self = this;
+    if(!self.data.isLoadAll&&self.data.buttonCanClick){
+      self.data.paginate.currentPage++;
+      self.getMainData();
+    };
   },
 
   intoPath(e){
