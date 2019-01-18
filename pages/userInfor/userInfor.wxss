@@ -14,7 +14,7 @@ page{
 }
 .input_list1{
 	width:92%;
-	height:90rpx;
+	height:100rpx;
 	margin:0 auto;
 	border-bottom:solid 1px #f6f6f6;
 }
