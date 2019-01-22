@@ -1,16 +1,16 @@
 <!--login.wxml-->
 <wxs module="func" src="../../utils/func.wxs" />
 <view class="tabs font30 flexRowBetween color2 bg1">
-    <view class="tabs_item " data-num="0" bindtap="tab">
+    <view class="tabs_item " data-num="0" bindtap="{{web_buttonCanClick?'tab':''}}">
         <text class="color2 {{web_num == 0?'tabs_this':''}}">全部</text>
     </view>
-    <view class="tabs_item " data-num="1" bindtap="tab">
+    <view class="tabs_item " data-num="1" bindtap="{{web_buttonCanClick?'tab':''}}">
         <text class="color2 {{web_num == 1?'tabs_this':''}}">未完成</text>
     </view>
-    <view class="tabs_item " data-num="2" bindtap="tab">
+    <view class="tabs_item " data-num="2" bindtap="{{web_buttonCanClick?'tab':''}}">
         <text class="color2 {{web_num == 2?'tabs_this':''}}">迟交</text>
     </view>
-    <view class="tabs_item " data-num="3" bindtap="tab">
+    <view class="tabs_item " data-num="3" bindtap="{{web_buttonCanClick?'tab':''}}">
         <text class="color2 {{web_num == 3?'tabs_this':''}}">按时完成</text>
     </view>
 </view>

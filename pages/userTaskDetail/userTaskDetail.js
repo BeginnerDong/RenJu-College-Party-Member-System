@@ -33,7 +33,8 @@ Page({
         middleKey:'id',
         key:'relation_id',
         searchItem:{
-          status:1
+          status:1,
+          user_no:wx.getStorageSync('info').user_no
         },
         condition:'='
       }

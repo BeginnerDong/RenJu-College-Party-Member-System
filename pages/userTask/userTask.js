@@ -48,7 +48,8 @@ Page({
         middleKey:'id',
         key:'relation_id',
         searchItem:{
-          status:1
+          status:1,
+          user_no:wx.getStorageSync('info').user_no
         },
         condition:'='
       }
@@ -88,10 +89,13 @@ Page({
 
 	    }else if(num==1){
 	    	self.data.getBefore.relation={
-	         tableName:'Message',
+	          tableName:'Message',
 	        	searchItem:{
-          	  status:['in',[1]]
+          	  status:['in',[1]],
 	        	},
+            fixSearchItem:{
+              user_no:['in',[wx.getStorageSync('info').user_no]]
+            },
 	       	 	middleKey:'id',
 	        	key:'relation_id',
 	        	condition:'not in',	
@@ -99,20 +103,26 @@ Page({
 	  		      			   	    	
 	    }else if(num==2){
 	    	self.data.getBefore.relation={
-	            tableName:'Message',
+	          tableName:'Message',
 	        	searchItem:{
-          	  		behavior:['in',[1]]
+          	  behavior:['in',[1]],
 	        	},
+            fixSearchItem:{
+              user_no:['in',[wx.getStorageSync('info').user_no]]
+            },
 	       	 	middleKey:'id',
 	        	key:'relation_id',
 	        	condition:'in',	
 	    	}
 	    }else if(num==3){
 	    	self.data.getBefore.relation={
-	            tableName:'Message',
+	          tableName:'Message',
 	        	searchItem:{
-          	  		behavior:['in',[2]]
+          	  behavior:['in',[2]],
 	        	},
+            fixSearchItem:{
+              user_no:['in',[wx.getStorageSync('info').user_no]]
+            },
 	       	 	middleKey:'id',
 	        	key:'relation_id',
 	        	condition:'in',	

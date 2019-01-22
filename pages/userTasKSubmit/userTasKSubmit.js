@@ -23,13 +23,16 @@ Page({
    //self.data.id= options.id;
     //self.getMainData();
    
-    self.data.url = 'https://xianjiaoda.solelycloud.com/userTaskSubmit.html?token='
-    +token.getStudentToken()
-    +'&id='+options.id;
-    console.log(self.data.url)
-    self.setData({
-    	web_url:self.data.url
-    })
+  
+      self.data.url = 'https://xianjiaoda.solelycloud.com/userTaskSubmit.html?token='
+      +token.getStudentToken()+'&user_no='+options.user_no
+      +'&id='+options.id;
+      console.log(self.data.url)
+      self.setData({
+        web_url:self.data.url
+      })
+
+
   },
 
   getMainData(){
