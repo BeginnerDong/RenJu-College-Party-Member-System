@@ -51,13 +51,13 @@
         </view>
         <view class="text this-text">首页</view>
     </view>
-    <view class="navbar_item"   bindtap="intoPathRedirect" data-path="/pages/studentLogin/studentLogin">
+    <view class="navbar_item"   bindtap="intoPathRedirect" data-path="/pages/user/user" data-type='0'>
         <view class="nav_img">
            <image src="/images/navbar2.png"></image>
         </view>
         <view class="text">个人中心</view>
     </view>
-    <view class="navbar_item"   bindtap="intoPathRedirect" data-path="/pages/teacherLogin/teacherLogin">
+    <view class="navbar_item"   bindtap="intoPathRedirect" data-path="/pages/manager/manager" data-type='1'>
         <view class="nav_img">
            <image src="/images/navbar3.png"></image>
         </view>

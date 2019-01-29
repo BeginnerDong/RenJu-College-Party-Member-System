@@ -81,16 +81,16 @@ Page({
 
 	    }else if(num==1){
 	    	self.data.getBefore.relation={
-          tableName:'Message',
-        	searchItem:{
-        	  status:['in',[1]]
-        	},
-          fixSearchItem:{
-            user_no:['in',[wx.getStorageSync('info').user_no]]
-          },
-       	 	middleKey:'id',
-        	key:'relation_id',
-        	condition:'not in',	
+	          tableName:'Message',
+	        	searchItem:{
+	        	  status:['in',[1]]
+	        	},
+	          fixSearchItem:{
+	            user_no:['in',[wx.getStorageSync('info').user_no]]
+	          },
+	       	 	middleKey:'id',
+	        	key:'relation_id',
+	        	condition:'not in',	
 	    	}
 	  		      			   	    	
 	    }else if(num==2){

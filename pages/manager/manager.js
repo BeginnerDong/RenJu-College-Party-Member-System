@@ -96,9 +96,20 @@ Page({
     api.pathTo(api.getDataSet(e,'path'),'nav');
   },
 
-  intoPathRedirect(e){
+  intoPathRedi(e){
     const self = this;
     api.pathTo(api.getDataSet(e,'path'),'redi');
+  },
+
+
+  intoPathRedirect(e){
+    const self = this;
+    var res = api.checkStudentLogin();
+	if(res){
+		api.pathTo(api.getDataSet(e,'path'),'redi');
+	}else{
+        api.pathTo('/pages/studentLogin/studentLogin','redi');
+	}
   }, 
 
 })

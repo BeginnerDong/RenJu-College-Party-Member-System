@@ -66,7 +66,7 @@
     </view>
 </view>
 <view class="navbar">
-    <view class="navbar_item"  bindtap="intoPathRedirect" data-path="/pages/index/index">
+    <view class="navbar_item"  bindtap="intoPathRedi" data-path="/pages/index/index">
         <view class="nav_img">
           <image src="/images/navbar1.png"></image>
         </view>
@@ -78,7 +78,7 @@
         </view>
         <view class="text this_text" style="color:#b02923">个人中心</view>
     </view>
-    <view class="navbar_item" bindtap="intoPathRedirect" data-path="/pages/teacherLogin/teacherLogin">
+    <view class="navbar_item" bindtap="intoPathRedirect" data-path="/pages/manager/manager">
         <view class="nav_img">
            <image src="/images/navbar3.png"></image>
         </view>

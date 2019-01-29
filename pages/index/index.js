@@ -97,7 +97,24 @@ Page({
 
   intoPathRedirect(e){
     const self = this;
-    api.pathTo(api.getDataSet(e,'path'),'redi');
+    var type = api.getDataSet(e,'type');
+    if(type==0){
+    	var res = api.checkStudentLogin();
+    	if(res){
+    		api.pathTo(api.getDataSet(e,'path'),'redi');
+    	}else{
+	        api.pathTo('/pages/studentLogin/studentLogin','redi');
+    	}
+    }else if(type==1){
+    	var res = api.checkTeacherLogin();
+    	if(res){
+    		api.pathTo(api.getDataSet(e,'path'),'redi');
+    	}else{
+	        api.pathTo('/pages/teacherLogin/teacherLogin','redi');
+    	}
+    }
+    
+    
   }, 
 })
 

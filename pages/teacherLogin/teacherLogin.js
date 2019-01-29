@@ -19,16 +19,9 @@ Page({
 
  
 
-  onShow(){
+  onLoad(){
     const self = this;
-    if(wx.getStorageSync('info')&&wx.getStorageSync('token')&&wx.getStorageSync('user_type')==1){
-        self.setData({
-          web_show:false
-        });
-        wx.redirectTo({
-          url: '/pages/manager/manager'
-        })
-    }
+
   },
 
   

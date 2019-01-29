@@ -675,14 +675,23 @@ class Base{
         }; 
     };
 
+    checkStudentLogin(){
+        const self = this;
+        if(wx.getStorageSync('login')&&wx.getStorageSync('token')&&wx.getStorageSync('user_type')==0){
+
+           return true;
+        }else{
+           return false
+                         
+        }; 
+    };
+
     checkTeacherLogin(){
         const self = this;
-        if(wx.getStorageSync('login')&&wx.getStorageSync('token')&&wx.getStorageSync('type')==1){   
-           return wx.getStorageSync('login');
+        if(wx.getStorageSync('login')&&wx.getStorageSync('token')&&wx.getStorageSync('user_type')==1){   
+           return  true;
         }else{
-          setTimeout(function(){
-            self.pathTo('/pages/teacher/login/login','redi');
-          },500);                
+           return false           
         }; 
     };
 
@@ -697,16 +706,7 @@ class Base{
         }; 
     };
 
-    checkStudentLogin(){
-        const self = this;
-        if(wx.getStorageSync('login')&&wx.getStorageSync('token')&&wx.getStorageSync('type')==0){   
-           return wx.getStorageSync('login');
-        }else{
-          setTimeout(function(){
-            self.pathTo('/pages/student/login/login','redi');
-          },500);                
-        }; 
-    };
+
 
     checkLogin(userType){
         const self = this;
@@ -751,10 +751,10 @@ class Base{
     logOff(){
         const self = this;
         wx.removeStorageSync('login');
-        wx.removeStorageSync('threeInfo');
-        wx.removeStorageSync('threeToken');
+        wx.removeStorageSync('info');
+        wx.removeStorageSync('token');
         if(!wx.getStorageSync('login')){
-            self.pathTo('/pages/User/user','tab')
+            self.pathTo('/pages/index/index','rela')
         }else{
             self.showToast('系统故障','fail')
         }

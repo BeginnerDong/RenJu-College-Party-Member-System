@@ -47,6 +47,7 @@ Page({
       };
       api.checkLoadAll(self.data.isFirstLoadAllStandard,'getMainData',self);
       self.setData({
+        web_user_no:wx.getStorageSync('info').user_no,
         web_mainData:self.data.mainData,
       });
     };
